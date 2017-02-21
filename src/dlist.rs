@@ -19,6 +19,6 @@ pub mod dlist {
     }
 
     pub struct DList<T> {
-
+        
     }
 }
