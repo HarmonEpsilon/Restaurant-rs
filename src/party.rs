@@ -8,6 +8,7 @@ pub mod party {
         time_req: u32,
     }
 
+    //implementing clone for party
     impl Clone for Party {
         fn clone(&self) -> Self {
             Party {
