@@ -11,6 +11,19 @@ pub mod table {
         party: Option<Box<Party>>,
     }
 
+    //Clone implementation for Table
+    impl Clone for Table {
+        fn clone(&self) -> Self {
+            Table {
+                table_id: self.table_id.clone(),
+                server_name: self.server_name.clone(),
+                num_seats: self.num_seats,
+                timer: self.timer,
+                party: self.party.clone().unwrap()
+            }
+        }
+    }
+
     impl Table {
         //default constructor
         pub fn new() -> Table {
