@@ -1,8 +1,9 @@
-use dlist;
-
 pub mod party {
+    use dlist;
+    use std::string::String;
+
     pub struct Party {
-        reservation_name: Option<Box<&'static str>>,
+        reservation_name: Option<String>,
         num_diners: u32,
         time_req: u32,
     }
@@ -14,22 +15,22 @@ pub mod party {
         }
 
         //create a Party
-        pub fn create(reservation: &'static str, diners: u32, time: u32) -> Party {
+        pub fn create(reservation: String, diners: u32, time: u32) -> Party {
             Party {reservation_name: Some(reservation), num_diners: diners, time_req: time}
         }
 
         //get reservation name
-        pub fn get_reservation(&self) -> &'static str {
-            &self.reservation_name
+        pub fn get_reservation(&mut self) -> String {
+            self.reservation_name.unwrap()
         }
 
         //get number of diners
-        pub fn get_diners(&self) -> u32 {
+        pub fn get_diners(&mut self) -> u32 {
             self.num_diners
         }
 
         //get time required
-        pub fn get_time(&self) -> u32 {
+        pub fn get_time(&mut self) -> u32 {
             self.time_req
         }
     }
