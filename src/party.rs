@@ -8,6 +8,16 @@ pub mod party {
         time_req: u32,
     }
 
+    impl Clone for Party {
+        fn clone(&self) -> Self {
+            Party {
+                reservation_name: self.reservation_name.clone(),
+                num_diners: self.num_diners,
+                time_req: self.time_req
+            }
+        }
+    }
+
     impl Party {
         //default constructor
         pub fn new() -> Party {
@@ -21,7 +31,7 @@ pub mod party {
 
         //get reservation name
         pub fn get_reservation(&mut self) -> String {
-            self.reservation_name.unwrap()
+            self.reservation_name.clone().unwrap()
         }
 
         //get number of diners

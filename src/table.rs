@@ -28,7 +28,7 @@ pub mod table {
         }
 
         //seats a party at a table
-        pub fn seat_party(&mut self, new_party: Box<Party>) {
+        pub fn seat_party(&mut self, mut new_party: Box<Party>) {
             self.set_timer(new_party.get_time());
             self.party = Some(new_party);
         }
@@ -40,17 +40,17 @@ pub mod table {
 
         //get server name 
         pub fn get_server(&mut self) -> String {
-            self.server_name.unwrap()
+            self.server_name.clone().unwrap()
         }
 
         //get timer
         pub fn get_timer(&mut self) -> u32 {
-            self.party.unwrap().get_time()
+            self.party.clone().unwrap().get_time()
         }
 
         //get the party seated at a table
         pub fn get_party(&mut self) -> Box<Party> {
-            self.party.unwrap()
+            self.party.clone().unwrap()
         }
 
         //clear the table for the next customer
