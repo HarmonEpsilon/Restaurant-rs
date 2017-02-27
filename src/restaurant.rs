@@ -1,31 +1,27 @@
 pub mod restaurant {
+    extern crate input_stream;
+
     use dlist::dlist::Dlist;
     use party::party::Party;
     use table::table::Table;
     use std::string::String;
     use std::io;
-    use std::io::prelude::*;
-
-    macro_rules! scanline {
-        ($x:expr) => {
-            io::stdin().lock().read_line(&mut $x).unwrap();
-        };
-    }
+    use self::input_stream::InputStream;
 
     pub struct Restaurant {
-        available: Dlist::new(),
-        occupied: Dlist::new(),
-        waiting: Dlist::new(),
+        available: Dlist<Table>::new(),
+        occupied: Dlist<Table>::new(),
+        waiting: Dlist<Party>::new(),
     }
 
     impl Restaurant {
         pub fn get_input() {
             //string variables
-            let mut server_id = String::new();
-            let mut name = String::new();
-            let mut reservation = String::new();
-            let mut id = String::new();
-            let mut buffer_in = String::new();
+            let mut server_id: String;
+            let mut name: String;
+            let mut reservation: String;
+            let mut id: String;
+            let mut buffer_in: String;
 
             //unsigned 32-bit integer variables
             let mut serving: u32 = 0;
@@ -33,8 +29,6 @@ pub mod restaurant {
             let mut seats: u32 = 0;
 
             //Begin procedures
-            scanline!(buffer_in);
-
             
         }
     }

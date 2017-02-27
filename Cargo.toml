@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["lando"]
 
 [dependencies]
+input-stream = "0.2.0"
